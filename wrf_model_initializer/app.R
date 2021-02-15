@@ -1,11 +1,8 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+# WRF-ARW model initializer
+# It provides to run WPS an WRF on Shiny platform. Since, running system commands inside R is a little bit tricky;
+# bash script creator is also added. Moreover; after downloading this bash script, it could be executed on 
+# background by using nohup, tmux or screen...
+
 
 library(shiny)
 library(shiny)
