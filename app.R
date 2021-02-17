@@ -258,14 +258,9 @@ ui = navbarPage(inverse = TRUE, "WRF Model Initializer",
                                    br(),
                                    p("Play with this interactive tool and find out!"),
                                    br(),
-                                   # div(img(src = "magfieldsstrip.png", height = 187, width = 800), style="text-align: center;"),
                                    br(),
                                    br(),
                                    br()
-                                   # div(p(strong("Built by"), a("committedtotape", href = "https://twitter.com/committedtotape"), "using the power of Rstudio and Shiny."), 
-                                   #     p(strong("R Packages:"), "tidyverse, tidytext, wordcloud2, tidygraph, vizNetwork, glue."),
-                                   #     p(strong("Sources:"), a("genius.com", href = "https://genius.com/albums/The-magnetic-fields/69-love-songs"), "for lyrics,", a("wikipedia", href = "https://en.wikipedia.org/wiki/69_Love_Songs"), "for singers."),
-                                   #     style="text-align: right;")
                          )
                 ),
                 #Second Tab - Data Downloader!
@@ -366,9 +361,9 @@ ui = navbarPage(inverse = TRUE, "WRF Model Initializer",
                                                            ),
                                                            column(6, align = "center",
                                                                   wellPanel(style = "background: white",
-                                                                            p(strong("Update fields on app!")),
-                                                                            actionButton("update_wps","Update fields"),
-                                                                            p("Update fields on app based on uploaded namelist.wps!")))
+                                                                            p(strong("Update parameters on app!")),
+                                                                            actionButton("update_wps","Update parameters"),
+                                                                            p("Update parameters on app based on uploaded namelist.wps!")))
                                                            ))
                                            ),
                                            fluidRow(column(12, align = "center",
@@ -507,9 +502,9 @@ ui = navbarPage(inverse = TRUE, "WRF Model Initializer",
                                                            ),
                                                            column(6, align = "center",
                                                                   wellPanel(style = "background: white",
-                                                                            p(strong("Update fields on app!")),
-                                                                            actionButton("update_wrf","Update fields"),
-                                                                            p("Update fields on app based on uploaded namelist.input!"))
+                                                                            p(strong("Update parameters on app!")),
+                                                                            actionButton("update_wrf","Update parameters"),
+                                                                            p("Update parameters on app based on uploaded namelist.input!"))
                                                            )
                                                            ))
                                            ),
@@ -672,8 +667,8 @@ ui = navbarPage(inverse = TRUE, "WRF Model Initializer",
                                         p("This part is created for long WRF model runs with a speciefed sequence type in dates", align = "justify"),
                                         p("For instance; if you would like to run a WRF model between 2020-01-01 00:00:00 and 2021-01-01 00:00:00; you should follow;", align = "justify"),
                                         p("1. If you would like to download data; then, choose data type and data path in Data tab! Don't forget the push show area button if you've selected ERA5 data! (You don't need to specify date ranges in Data tab.)",align = "justify"),
-                                        p("2. Upload namelist.wps, update the related fields, choose a path for WPS directory and definetely press make changes button in WPS tab. You can change any configuration you want before pressing Make changes button! (You don't need to specify the date ranges in WPS tab)",align = "justify"),
-                                        p("3. Upload namelist.input, update the related fields, choose a path for WRF directory and definetely press make changes button in WRF tab. You can change any configurations you want beofre pressing Make changes button! (You don't need to specify the date range in WRF tab)",align = "justify"),
+                                        p("2. Upload namelist.wps, update the related parameters, choose a path for WPS directory and definetely press make changes button in WPS tab. You can change any configuration you want before pressing Make changes button! (You don't need to specify the date ranges in WPS tab)",align = "justify"),
+                                        p("3. Upload namelist.input, update the related parameters, choose a path for WRF directory and definetely press make changes button in WRF tab. You can change any configurations you want beofre pressing Make changes button! (You don't need to specify the date range in WRF tab)",align = "justify"),
                                         p("4. If you also want to download dataset please choose Yes in this tab",align = "justify"),
                                         p("5. Please specify date and time ranges if you want to create a sequential bash scripts (ex. 2020-01-01, 2021-01-01)",align = "justify"),
                                         p("6. Choose your sequence type (Day, Week or Month)",align = "justify"),
@@ -905,10 +900,10 @@ server = function(input, output,session) {
       
       if(is.null(input$wps_namelist)) {
         #Negative warn!
-        warn_wps = paste("<strong><span style=\"color:darkred\">Please upload the namelist.wps in order to be able to update the fields!</span></strong>")
+        warn_wps = paste("<strong><span style=\"color:darkred\">Please upload the namelist.wps in order to be able to update the parameters!</span></strong>")
       } else {
         #Positive warn!
-        warn_wps = paste("<strong><span style=\"color:darkgreen\">Related fields updated!</span></strong>")
+        warn_wps = paste("<strong><span style=\"color:darkgreen\">Related parameters updated!</span></strong>")
       }
       
       HTML(paste(warn_wps, sep="<br/>"))
@@ -1585,10 +1580,10 @@ server = function(input, output,session) {
       
       if(is.null(input$wrf_namelist)) {
         #Negative warn!
-        warn_wrf = paste("<strong><span style=\"color:darkred\">Please upload the namelist.input in order to be able to update the fields!</span></strong>")
+        warn_wrf = paste("<strong><span style=\"color:darkred\">Please upload the namelist.input in order to be able to update the parameters!</span></strong>")
       } else {
         #Positive warn!
-        warn_wrf = paste("<strong><span style=\"color:darkgreen\">Related fields updated!</span></strong>")
+        warn_wrf = paste("<strong><span style=\"color:darkgreen\">Related parameters updated!</span></strong>")
       }
       
       HTML(paste(warn_wrf, sep="<br/>"))
