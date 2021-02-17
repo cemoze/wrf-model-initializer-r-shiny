@@ -12,7 +12,12 @@ This section introduces the app and the tabs.
 ![Summary_Tab](figures/summary_tab_sample.png)
 
 ## 2. Data
-FNL or ERA5 data can be downloaded manually in this tab. Minimum period for data downloading is set as one day. Features of the tab;
+FNL or ERA5 data can be downloaded manually in this tab. Minimum period for data downloading is set as one day. Please make sure to register to the [RDA] website and type your email and passwords in app.R to be able to download FNL. Besides, please follow the instructions found at the [Copernicus] before using the app to download ERA5 data!
+
+[RDA]: https://rda.ucar.edu
+[Copernicus]: https://cds.climate.copernicus.eu/api-how-to
+
+Features of the tab;
 
 * Choose the data type
 * Define the date ranges
